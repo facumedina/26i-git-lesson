@@ -27,15 +27,46 @@ const valorEntradaCine = 1000;
 const edad = prompt("Edad de la persona que ingresa al cine");
 const valorEntradaJubilados = valorEntradaCine * 0.6;
 const valorEntradaAdolescente = valorEntradaCine * 0.8;
+const valorDescuento = valorEntradaCine * 0.5;
 const valorEntradaNiños = 250;
 
-if(edad > 55) {
-    // console.info("El valor de la entrada es $" + valorEntradaCine * 0.5)
-    console.info("El valor de la entrada es $" + valorEntradaJubilados)    
+
+
+if(edad > 55 || (edad < 18 || edad >= 18)) {
+    console.info("El valor de la entrada es $" + valorDescuento);    
 } else if (edad >= 18 ) {
     console.info("El valor de la entrada es $" + valorEntradaCine);
-} else if (edad >= 10) {
-    console.info("El valor de la entrada es $" + valorEntradaAdolescente);
-} else {
+} 
+  else {
     console.info("El valor de la entrada es $" + valorEntradaNiños);
 }
+
+//10.- Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o 7 (sólo hay que comprobar si lo es por uno de los cuatro)
+
+let number = parseInt(prompt('Ingrese un numero'));
+const isDivisible2 = number % 2;
+const isDivisible3 = number % 3;
+const isDivisible5 = number % 5;
+const isDivisible7 = number % 7;
+
+if(isDivisible2 == 0 || isDivisible3 == 0 || isDivisible5 == 0 || isDivisible7 == 0) {
+    console.log('El número es divisible');
+} else {
+    console.log('El número no es divisible');
+}
+// if(isDivisible2 == 0 || isDivisible2 == 0) { console.log('Es divisible por 2') }
+// if(isDivisible3 == 0) { console.log('Es divisible por 3') }
+// if(isDivisible5 == 0) { console.log('Es divisible por 5') }
+// if(isDivisible7 == 0) { console.log('Es divisible por 7') }
+
+//11.- Añadir al ejercicio anterior que nos diga por cuál de los cuatro es divisible (hay que decir todos por los que es divisible)
+
+
+
+// //INGRESO EDAD = 5  
+
+//             TRUE (el O evalúa un verdadero)
+//         false  o    true   
+// if (edad >= 10 || edad < 18) {
+//     console.info ("El valor de la entrada es de $" + valorEntradaAdolescente)
+// }
