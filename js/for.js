@@ -1,49 +1,132 @@
-// Persona que ingrese su edad y que basada en ella pueda obtener el precio final que abonara con su entrada al cine
-//valor de entrada al cine es de $1000
-//Personas mayores de 55 años tienen un descuento del 40%
-//Personas entre 18 y 55 (54) no tienen descuento
-//Personas entre 10 y 18 adolescentes tienen un 20 % de decuento
-//Personas menores abonan $250 unicamente
+// Traemos de una base de datos (Baúl donde guardamos datos): Paises de latinoamerica
+// (const paisesLatam = [
+//     'Argentina',
+//     'Bolivia',
+//     'Brasil',
+//     'Chile',
+//     'Colombia',
+//     'Ecuador',
+//     'Guyana',
+//     'Guyana Francesa',
+//     'Paraguay',
+//     'Perú',
+//     'Surinam',
+//     'Uruguay',
+//     'Venezuela'
+// ];)
+
+//******** */
+
+//console.log(paisesLatam[5]) me va a mostrar sólo el nombre en la consola  de ecuador porq arranca del 0.
+// (console.log(paisesLatam.length)
+// //Si pongo console.log(paiseslatam.length) me muestra la longitud de ese arrays.
+// for(let i = 0; i < 13; i++) {
+//     //for(let i= 0; i < paiseslatam.length ; i++) el for se adapta xq evalua la cantidad de elementos y ve cuantas vueltas tiene que dar.
+//     //1 i=0
+//     //2 i=1
+//     //3 i=2
+//     //4 i=3
+//     //5 i=4
+//     //6 i=5
+//     const paisActual = paisesLatam[i];
+//     console.log(`Pais actual ${i}: ${paisActual}`);
+//     //Ejecutar acciones de acuerdo a cada pais 
+// })
+
+//************** */
+
+// ESTO ES IGUAL A LO DE ARRIBA PERO DE DIFERENTE MANERA
+// console.log(paisesLatam.length)
+// let i = 0;
+// while(i < paisesLatam.length) {
+//     //esto se lee "Mientras i sea menor que paiseslatam"
+//     const paisActual = paisesLatam[i];
+//     console.log('paisActual ' + paisActual);
+//     i++;
+// }
 
 
-const valorEntradaCine = 1000;
-const valorEntradaJubilados = valorEntradaCine * 0.6;
-const valorEntradaAdolescente = valorEntradaCine * 0.8;
-const valorDescuento = valorEntradaCine * 0.5;
-const valorEntradaNiños = 250;
-let costoTotalEntradas = 0;
-const cantidadDePersonas = prompt("Ingrese la cantidad de miembros de la familia");
+//***************** */
+const paisesQueHanGanadoUnMundial = [
+    'Francia',
+    'Alemania',
+    'España',
+    'Brasil',
+    'Italia',
+    'Francia',
+    'Brasil',
+    'Alemania',
+    'Argentina',
+    'Italia',
+    'Argentina',
+    'Alemania',
+    'Brasil',
+    'Inglaterra',
+    'Brasil',
+    'Brasil',
+    'Alemania',
+    'Uruguay',
+    'Italia',
+    'Italia',
+    'Uruguay',
+]
 
-    //1er parámetro(valor): inicializar contador
-    //2do parámetro (valor): condición
-    //3er parámetro (valor): incrementador/decrementador 
-for(let i = 1; i <= cantidadDePersonas; i++) {
-// for(let iteración = 1; iteración <= cantidadDePersonas; iteración++) {}
-//todo lo que se va a ejecutar dentro del búcle siempre que se cumpla la condición..
-// con el ++ se suma de a una unidad
 
-    const edad = prompt("Edad de la persona que ingresa al cine");
+let BrasilCampeón = 0;
+let ArgentinaCampeón = 0;
+let FranciaCampeón = 0;
+let AlemaniaCampeón = 0;
+for(let i= 0; i < paisesQueHanGanadoUnMundial.length; i++){
+    
+    if(paisesQueHanGanadoUnMundial[i] == 'Argentina'){
 
-    if(edad > 55) {
-        console.info("El valor de la entrada es $" + valorDescuento);
-        costoTotalEntradas = costoTotalEntradas + valorDescuento;    
-    } else if (edad >= 18 ) {
-        console.info("El valor de la entrada es $" + valorEntradaCine);
-        costoTotalEntradas = costoTotalEntradas + valorEntradaCine;
-    } else if (edad >= 10){
-        console.info("El valor de la entrada es $" + valorEntradaAdolescente);
-        costoTotalEntradas = costoTotalEntradas + valorEntradaAdolescente;
-    } else {
-        console.info ("El valor de la entrada es $" + valorEntradaNiños);
-        costoTotalEntradas = costoTotalEntradas + valorEntradaNiños;
+        ArgentinaCampeón = ArgentinaCampeón + 1;
+
+    } else if(paisesQueHanGanadoUnMundial[i] == 'Brasil'){
+
+        BrasilCampeón = BrasilCampeón + 1;
+
+    } else if(paisesQueHanGanadoUnMundial[i] == 'Alemania'){
+
+        AlemaniaCampeón = AlemaniaCampeón + 1;
+
+    } else if(paisesQueHanGanadoUnMundial[i] == 'Francia'){
+
+        FranciaCampeón = FranciaCampeón + 1;
     }
 
+//   //*** ES LO MISMO PONER ELSE IF O switch CASE ***
+    
+//     // switch (paisesQueHanGanadoUnMundial[i]) {
+//     //     case 'Argentina':
+//     //         ArgentinaCampeón = ArgentinaCampeón + 1;
+//     //         break;
+//     //     case 'Brasil':
+//     //         brasilCampeón = brasilCampeón + 1;
+//     //         break;
+//     //     case 'Alemania':
+//     //         AlemaniaCampeón = AlemaniaCampeón + 1;
+//     //         break;
+//     //     case 'Francia':
+//     //         FranciaCampeón = FranciaCampeón + 1;
+//     //         break;
 
+//     // }
 }
-console.log(`El valor total a abonar es de ${costoTotalEntradas} de contado`)
+
+console.log('Brasil ganó el mundial: ' + BrasilCampeón + ' veces.')
+console.log('Argentina ganó el mundial: ' + ArgentinaCampeón + ' veces.')
+console.log('Francia ganó el mundial: ' + FranciaCampeón + ' veces.')
+console.log('Alemania ganó el mundial: ' + AlemaniaCampeón + ' veces.')
+
+//brasil, alemania, francia, argentina
+
+//Recorrer el listado
+//con el condicional preguntan si el pais
+
+// let franciaCampeónDelMundo = 0;
+// let brasilCampeónDelMundo = 0;
 
 
-
-
-
+// console.log('Brasil gano el mundial ' + brasilCampeónDelMundo)
 
