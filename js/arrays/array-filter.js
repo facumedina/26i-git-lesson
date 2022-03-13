@@ -85,19 +85,63 @@ const paisesGanadoresDeMundiales = [
     },
 ];
 
-const inputBuscadorHTML = document.getElementById('buscadorPais');
+const listaDePaisesHTML = document.getElementById('listado');
+console.log(paisesGanadoresDeMundiales);
+
+/************ */
+{/* <li><span class="pais">País:</span>Algun pais <span>Año:</span>0001</li> */}
+/******************* */
+
+
+function listarPaises(arrayAPintar){
+
+    listaDePaisesHTML.innerHTML = '';
+
+    arrayAPintar.forEach(function(country){
+        //Combinación de += mantiene el valor anterior (izquierda) y le añade el valor de la derecha sumando ambos
+        //o se puede escribir listaDePaisesHTML.innerHTML = listaDePaisesHTML.innerHTML + `<li>${country.name}</li>`
+        listaDePaisesHTML.innerHTML += `<li>
+                                            <div class="row">
+                                                <div class="col-3">                
+                                                    <span class="pais">País:</span>${country.name}
+                                                </div>
+                                                <div class="col-6">    
+                                                    <span>Año:</span>${country.year}
+                                                </div>
+                                            </div>    
+                                        </li>`
+        console.log(country)
+    });
+}
+//Llamamos la función cuando se carga el script para pintar inicialmente todos los paises
+listarPaises(paisesGanadoresDeMundiales)
+
+
+
+
 
 function buscarPais(eventoDeJS) {
     const criterioDeBusqueda = eventoDeJS.target.value;
+    //Escribir un condicional que no empiece a buscar hasta que al menos se haya colocado 3 caracteres o más.
+    //**Opción 2
+    //if(criterioDeBusqueda.length < 3) return;
+    //**Opción 1 */
+    if(criterioDeBusqueda.length >= 2) {
+      const paisesFiltrados = paisesGanadoresDeMundiales.filter(pais => {
+        // if(pais.name.toLowerCase() === criterioDeBusqueda.toLowerCase()) {
+        //     return true
+        // }
+        // return false
+        const nombrePais = pais.name.toLocaleLowerCase();
+        //El Método includes() determina si una cadena de texto puede ser encontrada dentro de otra cadena de texto, devolviendo true o false.
+        return nombrePais.includes(criterioDeBusqueda)
 
-    const paisesFiltrados = paisesGanadoresDeMundiales.filter(pais => {
-        if(pais.name.toLowerCase() === criterioDeBusqueda.toLowerCase()) {
-            return true
-        }
-        return false
-    })
+        })
 
-    console.log(paisesFiltrados)
+        console.log(paisesFiltrados);
+        listarPaises(paisesFiltrados)
+    }
+    
 }
 
 
