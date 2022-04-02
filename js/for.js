@@ -15,7 +15,7 @@
 //     'Venezuela'
 // ];)
 
-//******** */
+//********* */
 
 //console.log(paisesLatam[5]) me va a mostrar sólo el nombre en la consola  de ecuador porq arranca del 0.
 // (console.log(paisesLatam.length)
